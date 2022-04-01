@@ -8,6 +8,16 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="37dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="안녕하세요."
+        tools:layout_editor_absoluteX="130dp"
+        tools:layout_editor_absoluteY="218dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
