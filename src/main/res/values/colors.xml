@@ -7,4 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="darkPink">#C70039</color>
+    <color name="lightPink">#EAA1B6</color>
+    <color name="skinYellow">#FAD7A0</color>
+    <color name="lightPurple">#C39BD3</color>
+    <color name="process_number">#798C8C8C</color>
 </resources>
