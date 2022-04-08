@@ -12,7 +12,7 @@ class ViewControl_02 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_control02)
 
-        // View를 코틸린 파일(Activity)로 가져오는 방법
+        // View를 코틀린 파일(Activity)로 가져오는 방법
         val textViewOne: TextView = findViewById(R.id.textViewOne)
         val buttonOne: Button = findViewById(R.id.buttonOne)
         // textView를 불러와서 text로하면 CharSequence 형태로 온다. 따라서 toString 옵션을 사용
