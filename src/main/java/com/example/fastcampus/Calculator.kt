@@ -35,6 +35,8 @@ class Calculator : AppCompatActivity() {
     var inputValue: String = ""
     var operatorValue: String = ""
     var temp_num: String = ""
+    var firstNum: String = ""
+    var secondNum: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +44,6 @@ class Calculator : AppCompatActivity() {
 
         findViews()
         setNumberListener()
-        setOperatorListener()
     }
 
     fun setNumberListener() {
@@ -61,24 +62,8 @@ class Calculator : AppCompatActivity() {
     }
 
     fun setOperatorListener() {
-        val operatorList: List<Button> = listOf(
-            plusButton, minusButton, divideButton, multiplyButton
-        )
-        val listener = object : View.OnClickListener {
-            override fun onClick(p0: View?) {
-                if (inputValue == "" || operatorValue != "") {
-                    // 숫자를 입력하지 않은 상태이거나 연산자를 두 번 입력한 경우
-                    processNumber.text = "Please input Number"
-                    processNumber.setTextColor(Color.parseColor("#FFFFFFFF"))
-                    Handler(Looper.getMainLooper()).postDelayed({
-                        processNumber.text = ""
-                        processNumber.setTextColor(Color.parseColor("#798C8C8C"))
-                    }, 2000)
-                } else {
-                }
-            }
-        }
-        operatorList.forEach { it.setOnClickListener(listener) }
+        // first, second num 사용해서 다시 한번 해보자.....
+        // NumberListener도 수정이 필요하면 수정하자...
     }
 
     fun findViews() {
