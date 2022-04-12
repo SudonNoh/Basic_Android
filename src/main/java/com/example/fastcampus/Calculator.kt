@@ -35,8 +35,7 @@ class Calculator : AppCompatActivity() {
     var inputValue: String = ""
     var operatorValue: String = ""
     var tempNum: String = ""
-    var firstNum: String = ""
-    var secondNum: String = ""
+    var processNum: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +48,8 @@ class Calculator : AppCompatActivity() {
         equalButton.setOnClickListener {
             val resultNum: Float? =
                 calculatorFunction(tempNum, resultNumber.text.toString(), operatorValue)
+            processNum += resultNumber.text.toString()
+            processNumber.text = processNum
             resultNumber.text = resultNum.toString()
             inputValue = ""
             operatorValue = ""
@@ -59,6 +60,7 @@ class Calculator : AppCompatActivity() {
             inputValue = ""
             operatorValue = ""
             tempNum = ""
+            processNum = ""
             processNumber.text = ""
             resultNumber.text = ""
         }
@@ -86,6 +88,10 @@ class Calculator : AppCompatActivity() {
         )
         val listener = object : View.OnClickListener {
             override fun onClick(p0: View?) {
+                if (inputValue == "") {
+                    processNum += (operatorValue + " ")
+                    processNumber.text = processNum
+                }
                 inputValue += (p0 as Button).text as String
                 resultNumber.text = inputValue
             }
@@ -102,13 +108,17 @@ class Calculator : AppCompatActivity() {
                 if (operatorValue != "") {
                     val resultNum: Float? =
                         calculatorFunction(tempNum, resultNumber.text.toString(), operatorValue)
-                    resultNumber.text = resultNum.toString()
+                    processNum += (resultNumber.text.toString() + " ")
+                    processNumber.text = processNum
+                    operatorValue = (p0 as Button).text as String
+                    resultNumber.text = operatorValue
                     inputValue = ""
-                    operatorValue = ""
                     tempNum = resultNum.toString()
                 } else {
                     operatorValue = (p0 as Button).text as String
                     tempNum = resultNumber.text.toString()
+                    processNum += (tempNum + " ")
+                    processNumber.text = processNum
                     resultNumber.text = operatorValue
                     inputValue = ""
                 }
