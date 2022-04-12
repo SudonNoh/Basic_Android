@@ -34,7 +34,7 @@ class Calculator : AppCompatActivity() {
 
     var inputValue: String = ""
     var operatorValue: String = ""
-    var temp_num: String = ""
+    var tempNum: String = ""
     var firstNum: String = ""
     var secondNum: String = ""
 
@@ -44,17 +44,49 @@ class Calculator : AppCompatActivity() {
 
         findViews()
         setNumberListener()
+        setOperatorListener()
+
+        equalButton.setOnClickListener {
+            val resultNum: Float? =
+                calculatorFunction(tempNum, resultNumber.text.toString(), operatorValue)
+            resultNumber.text = resultNum.toString()
+            inputValue = ""
+            operatorValue = ""
+            tempNum = resultNum.toString()
+        }
+
+        initButton.setOnClickListener {
+            inputValue = ""
+            operatorValue = ""
+            tempNum = ""
+            processNumber.text = ""
+            resultNumber.text = ""
+        }
+
+        backspaceButton.setOnClickListener {
+            val tempText: String = resultNumber.text.toString()
+            inputValue = tempText.dropLast(1)
+            resultNumber.text = inputValue
+        }
+
+        dotButton.setOnClickListener {
+            if (resultNumber.text.contains(".")) {
+                resultNumber.text = resultNumber.text
+            } else {
+                inputValue += (it as Button).text as String
+                resultNumber.text = inputValue
+            }
+        }
     }
 
     fun setNumberListener() {
         val numberList: List<Button> = listOf(
             oneButton, twoButton, threeButton, fourButton, fiveButton,
             sixButton, sevenButton, eightButton, nineButton, zeroButton,
-            dotButton
         )
         val listener = object : View.OnClickListener {
             override fun onClick(p0: View?) {
-                inputValue += (p0 as Button).text
+                inputValue += (p0 as Button).text as String
                 resultNumber.text = inputValue
             }
         }
@@ -62,8 +94,40 @@ class Calculator : AppCompatActivity() {
     }
 
     fun setOperatorListener() {
-        // first, second num 사용해서 다시 한번 해보자.....
-        // NumberListener도 수정이 필요하면 수정하자...
+        val operatorList: List<Button> = listOf(
+            plusButton, minusButton, divideButton, multiplyButton
+        )
+        val listener = object : View.OnClickListener {
+            override fun onClick(p0: View?) {
+                if (operatorValue != "") {
+                    val resultNum: Float? =
+                        calculatorFunction(tempNum, resultNumber.text.toString(), operatorValue)
+                    resultNumber.text = resultNum.toString()
+                    inputValue = ""
+                    operatorValue = ""
+                    tempNum = resultNum.toString()
+                } else {
+                    operatorValue = (p0 as Button).text as String
+                    tempNum = resultNumber.text.toString()
+                    resultNumber.text = operatorValue
+                    inputValue = ""
+                }
+            }
+        }
+        operatorList.forEach { it.setOnClickListener(listener) }
+    }
+
+    fun calculatorFunction(firstNum: String, secondNum: String, operatorStr: String): Float? {
+        val firstNumber: Float = firstNum.toFloat()
+        val secondNumber: Float = secondNum.toFloat()
+        val result: Float? = when (operatorStr) {
+            "+" -> firstNumber + secondNumber
+            "-" -> firstNumber - secondNumber
+            "*" -> firstNumber * secondNumber
+            "/" -> firstNumber / secondNumber
+            else -> null
+        }
+        return result
     }
 
     fun findViews() {
