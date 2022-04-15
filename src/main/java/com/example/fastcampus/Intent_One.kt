@@ -54,6 +54,8 @@ class Intent_One : AppCompatActivity() {
             this.setOnClickListener {
                 // 시작점: this@Intent_One / 목적지: Intent_Two::class.java
                 startActivity(
+                    // apply 안에서 this만 작성될 경우 이때 this는 TextView가 된다.
+                    // 하지만 우리는 지금 Activity를 this로 잡아야하기 때문에 @를 붙여서 해결해준다.
                     Intent(this@Intent_One, Intent_Two::class.java)
                 )
             }
@@ -74,8 +76,8 @@ class Intent_One : AppCompatActivity() {
         val startActivityLauncher: ActivityResultLauncher<Intent> = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ) {
-            when(it.resultCode){
-                RESULT_OK->{
+            when (it.resultCode) {
+                RESULT_OK -> {
                     Log.d("dataa", it.data?.extras?.getString("result")!!)
 
                 }
@@ -86,8 +88,9 @@ class Intent_One : AppCompatActivity() {
         val startActivityLauncher2: ActivityResultLauncher<Intent> = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ) {
-            when(it.resultCode){
-                RESULT_OK->{
+            when (it.resultCode) {
+                RESULT_OK -> {
+                    // tag는 logcat에서 검색할 때 사용/ key는 intent_two에서 보내주는 값의 key
                     Log.d("data", it.data?.extras?.getString("result")!!)
                 }
             }
@@ -99,6 +102,20 @@ class Intent_One : AppCompatActivity() {
             this.setOnClickListener {
                 val intent = Intent(this@Intent_One, Intent_Two::class.java)
                 startActivityLauncher.launch(intent)
+            }
+        }
+
+        // 명시적 인텐트 + 이미지 URI 전달
+        (findViewById<TextView>(R.id.intent_six)).apply {
+            this.setOnClickListener {
+                val intent = Intent(this@Intent_One, Intent_Two::class.java).apply {
+                    val imageUri =
+                        Uri.parse("android.resource://" + packageName + "/drawable/" + "download")
+                    this.action = Intent.ACTION_SEND
+                    this.putExtra(Intent.EXTRA_STREAM, imageUri)
+                    this.setType("image/*")
+                }
+                startActivity(intent)
             }
         }
 

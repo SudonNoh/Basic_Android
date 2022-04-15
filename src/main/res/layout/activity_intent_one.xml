@@ -47,4 +47,12 @@
         android:gravity="center"
         android:text="명시적 인텐트 + ActivityResult API" />
 
+    <TextView
+        android:id="@+id/intent_six"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/lightPink"
+        android:gravity="center"
+        android:text="명시적 인텐트 + action" />
+
 </androidx.appcompat.widget.LinearLayoutCompat>
