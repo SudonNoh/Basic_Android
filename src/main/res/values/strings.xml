@@ -18,4 +18,6 @@
     <string name="dot">.</string>
     <string name="init">CA</string>
     <string name="backspace">back\nspace</string>
+    <string name="input">입력</string>
+    <string name="https">https://</string>
 </resources>

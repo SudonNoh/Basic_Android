@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.fastcampus">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,9 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FastCampus">
         <activity
-            android:name=".ActivityThree"
-            android:launchMode="singleTop"
+            android:name=".ActivityOne"
             android:exported="false" />
+        <activity
+            android:name=".ActivityThree"
+            android:exported="false"
+            android:launchMode="singleTop" />
         <activity
             android:name=".ActivityTwo"
             android:exported="false" />
@@ -38,7 +43,7 @@
             android:name=".TestActivity"
             android:exported="false" />
         <activity
-            android:name=".ActivityOne"
+            android:name=".WebView"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
