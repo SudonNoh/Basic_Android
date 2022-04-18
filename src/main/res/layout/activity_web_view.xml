@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_weight="1"
-            android:hint="@string/https"
+            android:hint="@string/http"
             android:importantForAutofill="no"
             android:inputType="textWebEditText"
             android:textSize="20sp" />
