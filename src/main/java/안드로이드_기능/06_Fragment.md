@@ -25,10 +25,10 @@
         - Fragment가 자신의 interface(화면)를 처음으로 그릴 시간이 되면 호출된다.
         - View를 반환해야 한다.
         - UI를 제공하지 않는 경우에는 null을 반환
-    - onPause
+    - onPause()
         - 사용자가 Fragment를 떠난다는 것을 나타내는 첫번째 신호
         - 변경 사항을 저장하면 좋다.
-    - onDetach
+    - onDetach()
         - Fragment가 Activity와 연결이 끊어지는 중에 호출된다.
 
 ## 3. 생성방법
