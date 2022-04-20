@@ -67,10 +67,11 @@ class ListViewAdapter(
             holder.carImage = view.findViewById<ImageView>(R.id.carImage)
             holder.nthCar = view.findViewById<TextView>(R.id.nthCar)
             holder.nthEngine = view.findViewById<TextView>(R.id.nthEngine)
-
+            // tag라는 속성을 만들어서 holder를 저장
             view.tag = holder
         } else {
             // 재활용 가능
+            // holder를 들어온 convertView로 재정의
             holder = convertView.tag as ViewHolder
             view = convertView
         }
@@ -80,8 +81,6 @@ class ListViewAdapter(
         )
         holder.nthCar?.text = car.nthCar
         holder.nthEngine?.text = car.nthEngine
-
-
         // 해당 번째 뷰를 반환
 //        val view = layoutInflater.inflate(R.layout.car_item, null)
 //        val carImage = view.findViewById<ImageView>(R.id.carImage)
