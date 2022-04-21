@@ -5,21 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ListViewActivity">
+    tools:context=".RecyclerViewActivity">
 
-    <TextView
-        android:id="@+id/addCar"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/teal_200"
-        android:gravity="center"
-        android:text="Button"
-        android:textColor="@color/white"
-        android:textSize="30sp" />
-
-    <ListView
-        android:id="@+id/listView"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
 </androidx.appcompat.widget.LinearLayoutCompat>

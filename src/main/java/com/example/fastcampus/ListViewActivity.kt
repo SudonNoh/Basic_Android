@@ -6,10 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.ImageView
-import android.widget.ListView
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 
 class ListViewActivity : AppCompatActivity() {
@@ -28,8 +25,34 @@ class ListViewActivity : AppCompatActivity() {
             this
         )
 
+        // 어답터 장착 방법
         val listView = findViewById<ListView>(R.id.listView)
         listView.adapter = adapter
+
+        // 리스너 장착 방법
+        // parent : item이 붙어있는 부모 view
+        // view : item 하나
+        // position : 몇 번째 item인지
+        // id : getItemId 에서 return 해주었던 id가 온다.
+        listView.setOnItemClickListener { parent, view, position, id ->
+            val car: Car = adapter.carList[position]
+            val nthCar = car.nthCar
+            val nthEngine = car.nthEngine
+
+            Toast.makeText(
+                this,
+                nthCar + "  " + nthEngine,
+                Toast.LENGTH_LONG
+            ).show()
+        }
+
+        // 데이터 갱신 방법
+        findViewById<TextView>(R.id.addCar).setOnClickListener {
+            adapter.carList.add(
+                Car("안녕 나는 차", "안녕 나는 엔진")
+            )
+            adapter.notifyDataSetChanged()
+        }
     }
 }
 
@@ -58,7 +81,7 @@ class ListViewAdapter(
         val view: View
         val holder: ViewHolder
         if (convertView == null) {
-            // 재활용 불가능
+            // 최초 실행될 때
             view = layoutInflater.inflate(R.layout.car_item, null)
             holder = ViewHolder()
             holder.carImage?.setImageDrawable(
