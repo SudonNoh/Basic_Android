@@ -64,8 +64,9 @@ class RecyclerViewAdapter(
                 // adapterPosition 은 RecyclerView 가 제공하는 변수로
                 // 지금 만드는 setOnClickListener 가 몇번째 리스너인지 구분 할 수 있도록 해준다.
                 val position : Int = adapterPosition
-                // INNER CLASS 에서는 OUTER CLASS 에 존재하는 변수에 접근할 수 없다.
-                // class 앞에 inner 를 붙여 inner class 로 만ㄷ르어준다.
+                // INNER CLASS 에서는 OUTER CLASS 에 존재하는 변수에 접근할 수 있는데,
+                // class 안에 class 를 작성한다고 inner class 가 되는 것은 아니다.
+                // class 앞에 inner 를 붙여 inner class 로 만들어준다.
                 val car = carList[position]
                 Log.d("testt", car.nthCar)
             }
