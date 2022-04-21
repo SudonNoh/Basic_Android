@@ -68,8 +68,7 @@ class TalkViewAdapter(
     ): TalkViewAdapter.ViewHolder {
         val view = when (viewType) {
             1 -> inflater.inflate(R.layout.talk_one, parent, false)
-            2 -> inflater.inflate(R.layout.talk_two, parent, false)
-            else -> inflater.inflate(R.layout.talk_one, parent, false)
+            else -> inflater.inflate(R.layout.talk_two, parent, false)
         }
         return ViewHolder(view)
     }
