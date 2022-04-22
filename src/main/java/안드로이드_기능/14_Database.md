@@ -1,0 +1,31 @@
+# 데이터베이스(Database)
+    - 직군
+        - Database Administration (DBA)
+        - 서버개발자, 백엔드개발자
+    - 데이터란?
+        - 디지털화 되어 있는 모든 것
+    - 저장 방식
+        - 저장 방식을 구분하는 목적: 저장 속도, 불러오는 속도
+        - 계층형 데이터베이스
+            - 파일트리구조 방식으로 데이터를 저장한다.
+        - 관계형 데이터베이스
+            - 행과 열을 가지는 표 형식(엑셀)으로 데이터를 저장한다
+            - 가장 보편적으로 사용되는 방식
+            - Oracle
+            - PostgreSQL
+            - SQLite
+        - 객체형 데이터베이스
+            - 객체를 저장하는 방식
+        - Key-Value 방식
+            - Key & Value를 쌍으로 저장하는 방식
+            - NoSql
+
+    - 데이터베이스를 조작하기 위한 언어
+        - SQL(관계형 데이터베이스)
+    - RDBMS (Relational Database Management System)
+        - 관계형 데이터베이스 관리 시스템
+        - 디비버
+        - 데이터 그립
+
+    - CRUD
+        - Create, Read, Update, Delete

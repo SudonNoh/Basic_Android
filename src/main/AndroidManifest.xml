@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FastCampus">
         <activity
-            android:name=".TabLayoutPagerSimpleActivity"
+            android:name=".RoomActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,24 +20,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SharedPreferenceActivity"
+            android:exported="true" />
+        <activity
+            android:name=".TabLayoutPagerSimpleActivity"
+            android:exported="true" />
         <activity
             android:name=".TabLayoutPagerActivityNew"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".TablayoutPagerActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".RecycleViewHomework"
             android:exported="true" />
