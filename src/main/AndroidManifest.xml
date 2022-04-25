@@ -12,7 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FastCampus">
         <activity
+            android:name=".NetworkActivity"
+            android:exported="false" />
+        <activity
             android:name=".RoomActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RetrofitActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
