@@ -34,6 +34,7 @@ interface RetrofitService {
     @POST("json/students/")
     // HashMap : 사람이 읽을 수 없는 Key-Value 형식으로 암호화
     fun createStudent(
+        // POSTMAN의 Body 부분이라고 생각하면 된다.
         @Body params: HashMap<String, Any>
     ): Call<StudentFromServer>
 
